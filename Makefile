@@ -1,19 +1,25 @@
 NAME = philo
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -pthread
+HEADERS = -I ./include
 
-SCRS = ${addprefix srcs/, \}
+SRCS = ${addprefix srcs/, \
+				main.c }
 
-OBJ = $(SCRS:srcs/%.cc=obj/%.o)
+OBJ = $(SRCS:srcs/%.c=obj/%.o)
 
 all: $(NAME)
 
-obj/%.o: src/%.c
+$(NAME): $(OBJ)
+			@cc $(FLAGS) $(HEADERS) $(OBJ) -o $@
+			@echo "compiling $(NAME)"
+
+obj/%.o: srcs/%.c
 			mkdir -p obj
-			@cc $(FLAGS)
+			@cc $(FLAGS) $(HEADERS) -c $< -o $@
 			@echo "compiling"
 
 clean:
-			@echo "removing"
+			@echo "removing object files"
 			@rm -rf $(OBJ)
 
 fclean: clean
