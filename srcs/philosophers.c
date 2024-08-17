@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 19:45:30 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/17 14:45:58 by cshingai         ###   ########.fr       */
+/*   Created: 2024/08/17 18:17:13 by cshingai          #+#    #+#             */
+/*   Updated: 2024/08/17 18:18:05 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-//argc must 5 or 6
-//argv[1] must no surpace 200
-t_bool	philo_checker(int argc, char *argv)
+void	build_philosophers(t_philo *philo, int nbr)
 {
-	if (argc == 5 || argc == 6)
+	int i = -1;
+	while (++i < nbr)
 	{
-		if (argv > 0 && argv <= 200)
-			return(TRUE);
-		else
-			return(error("Invalid number of philosophers.") ,FALSE);
+		philo->id += 1;
+		philo->right_fork = TRUE;
+		philo->left_fork = TRUE;
+		philo->life_status.init;
+		philo_laterality(philo);
 	}
+}
+
+void	philo_laterality(t_philo *philo)
+{
+	if (philo->id % 2 != 0)
+		philo->preference = RIGHT;
 	else
-		return(error("Invalid number of arguments.") ,FALSE);
+		philo->preference = LEFT;
 }
