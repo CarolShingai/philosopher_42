@@ -3,7 +3,10 @@ FLAGS = -Wall -Werror -Wextra -pthread
 HEADERS = -I ./include
 
 SRCS = ${addprefix srcs/, \
-				main.c }
+				main.c \
+				philosophers.c \
+				take_fork.c \
+				validation.c }
 
 OBJ = $(SRCS:srcs/%.c=obj/%.o)
 

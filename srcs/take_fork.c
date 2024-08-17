@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 18:25:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/17 18:26:08 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/17 20:35:46 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_bool	take_fork(t_philo *philo)
 
 t_bool	right_hand(t_philo *philo)
 {
-	if (philo->preference == RIGHT && philo->right_fork == TRUE)
+	if (philo->preference == RIGHT && philo->right_fork.fork_status == TRUE)
 	{
-		if (philo->left_fork == TRUE)
+		if (philo->left_fork.fork_status == TRUE)
 			return (TRUE);
 		else
 			return (FALSE);
@@ -35,12 +35,12 @@ t_bool	right_hand(t_philo *philo)
 
 t_bool	left_hand(t_philo *philo)
 {
-	if (philo->preference == LEFT && philo->left_fork == TRUE)
+	if (philo->preference == LEFT && philo->left_fork.fork_status == TRUE)
 	{
-		if (philo->right_fork == TRUE)
+		if (philo->right_fork.fork_status == TRUE)
 			return (TRUE);
 		else
-			FALSE;
+			return(FALSE);
 	}
 	else
 		return(FALSE);
