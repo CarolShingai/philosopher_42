@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 19:22:32 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 20:03:46 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:30:56 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,21 @@
 
 long	get_time(void)
 {
-	long	milliseconds;
-	struct timeval	timer;
+	long	time;
+	struct timeval	current_time;
 
-	gettimeofday(&timer, NULL);
-	milliseconds = (timer.tv_sec * 1000LL) + (timer.tv_usec / 1000LL);
-	return(milliseconds);
+	gettimeofday(&current_time, NULL);
+	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
+	return(time);
 }
+
+// void	ft_usleep(long time)
+// {
+// 	long	start_time;
+
+// 	start_time = 0;
+
+// }
 
 void	set_time(t_table *table, char **argv)
 {

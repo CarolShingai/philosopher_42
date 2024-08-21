@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 19:34:59 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:35:48 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct	s_table
 	long	time_to_die;
 	long	time_to_eat;
 	long	time_to_sleep;
+	long	start_time;
 	t_philo	*philo;
 	t_fork	*fork;
 }			t_table;
