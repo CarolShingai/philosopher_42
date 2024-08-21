@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cshingai <cshingai>                        +#+  +:+       +#+        */
+/*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/19 14:32:36 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:03:57 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,20 @@ void	thinking(t_philo *philo);
 void	sleeping(t_philo *philo);
 
 // mutex.c
-void    init_mutex(t_table *table);
-void    destroy_mutex(t_table *table);
+void	init_mutex(t_table *table);
+void	destroy_mutex(t_table *table);
 
 // thread.c
-void    create_thread(t_table *table);
-void    join_thread(t_table *table);
+void	create_thread(t_table *table);
+void	join_thread(t_table *table);
 
 // validation.c
 t_bool	philo_checker(int argc, char *argv);
 
 // take_fork.c
-t_bool	take_fork(t_philo *philo);
-t_bool	right_hand(t_philo *philo);
-t_bool	left_hand(t_philo *philo);
+void	take_fork(t_philo *philo);
+void	right_hand(t_philo *philo);
+void	left_hand(t_philo *philo, int i);
 
 // table.c
 void	set_table(t_table *table, char *argv);

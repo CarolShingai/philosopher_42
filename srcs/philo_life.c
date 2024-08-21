@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_life.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cshingai <cshingai>                        +#+  +:+       +#+        */
+/*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/19 14:40:35 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:30:54 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,27 @@ void	*philo_life(void *arg)
 	philo = (t_philo *) arg;
 	if (philo == NULL)
 		perror("philo is NULL");
-	printf("fork state: %d\n", take_fork(philo));
 	//deadlock ocorrendo
+	printf("philo function: entrou\n");
 	while(1)
 	{
-		if (philo->life_status == EATING && take_fork(philo) == TRUE)
-		{
-			eating(philo);
-			philo->life_status = THINKING;
-		}
-		else if (philo->life_status == THINKING)
-		{
-			printf("entrou");
-			thinking(philo);
-			philo->life_status = SLEEPING;
-		}
-		else if (philo->life_status == SLEEPING)
-		{
-			sleeping(philo);
-			philo->life_status = EATING;
-		}
+		take_fork(philo);
+		// if (philo->life_status == EATING)
+		// {
+		// 	eating(philo);
+		// 	philo->life_status = THINKING;
+		// }
+		// else if (philo->life_status == THINKING)
+		// {
+		// 	printf("entrou");
+		// 	thinking(philo);
+		// 	philo->life_status = SLEEPING;
+		// }
+		// else if (philo->life_status == SLEEPING)
+		// {
+		// 	sleeping(philo);
+		// 	philo->life_status = EATING;
+		// }
 	}
 	return(NULL);
 }
