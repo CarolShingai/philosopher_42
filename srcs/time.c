@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/17 18:17:13 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 16:21:49 by cshingai         ###   ########.fr       */
+/*   Created: 2024/08/21 19:22:32 by cshingai          #+#    #+#             */
+/*   Updated: 2024/08/21 20:03:46 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-t_fork_preference	philo_laterality(t_philo *philo)
+long	get_time(void)
 {
-	if (philo->id % 2 != 0)
-		return (RIGHT);
-	else
-		return(LEFT);
+	long	milliseconds;
+	struct timeval	timer;
+
+	gettimeofday(&timer, NULL);
+	milliseconds = (timer.tv_sec * 1000LL) + (timer.tv_usec / 1000LL);
+	return(milliseconds);
+}
+
+void	set_time(t_table *table, char **argv)
+{
+	table->time_to_die = atol(argv[2]);
+	table->time_to_eat = atol(argv[3]);
+	table->time_to_sleep = atol(argv[4]);
 }

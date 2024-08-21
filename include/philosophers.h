@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 17:03:57 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 19:34:59 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,15 @@ typedef struct	s_philo
 typedef struct	s_table
 {
 	int		nbr_philo;
+	long	time_to_die;
+	long	time_to_eat;
+	long	time_to_sleep;
 	t_philo	*philo;
 	t_fork	*fork;
 }			t_table;
 
 
 //philosophers.c
-t_fork_preference	philo_laterality(t_philo *philo);
 
 // philo_life.c
 void	*philo_life(void *arg);
@@ -95,5 +97,6 @@ void	left_hand(t_philo *philo, int i);
 void	set_table(t_table *table, char *argv);
 void	set_philosophers(t_table *table, int nbr);
 void	assign_fork(t_table *table);
+t_fork_preference	philo_laterality(t_philo *philo);
 
 #endif

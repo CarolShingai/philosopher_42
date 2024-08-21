@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cshingai <cshingai>                        +#+  +:+       +#+        */
+/*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 19:45:30 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/18 21:30:11 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:56:36 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_bool	philo_checker(int argc, char *argv)
 	int nbr;
 
 	nbr = atoi(argv);
-	if (argc == 2)
+	if (argc == 5 || argc == 6)
 	{
 		if (nbr > 0 && nbr <= 200)
 			return(TRUE);

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 17:43:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:03:42 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,12 @@ void	assign_fork(t_table *table)
 		table->philo[i].right_fork.fork_id = i;
 		table->philo[i].left_fork.fork_id = (i + 1) % table->nbr_philo;
 	}
+}
+
+t_fork_preference	philo_laterality(t_philo *philo)
+{
+	if (philo->id % 2 != 0)
+		return (RIGHT);
+	else
+		return(LEFT);
 }

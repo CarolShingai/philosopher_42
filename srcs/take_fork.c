@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 18:25:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 17:46:44 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:50:28 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	right_hand(t_philo *philo)
 		lock = pthread_mutex_lock(&*philo->right_fork.fork);
 		if (lock != 0)
 			printf("Error in lock function\n");
-		printf("%d has taken a fork\n", philo->id);
+		printf("philosopher:%d has taken a fork\n", philo->id);
 	}
 }
 
@@ -48,6 +48,6 @@ void	left_hand(t_philo *philo, int i)
 		lock = pthread_mutex_lock(&*philo->left_fork.fork);
 		if (lock != 0)
 			printf("Error in lock function\n");
-		printf("%d has taken a fork\n", philo->id);
+		printf("philosopher:%d has taken a fork\n", philo->id);
 	}
 }
