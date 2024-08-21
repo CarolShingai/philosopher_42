@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cshingai <cshingai>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/17 20:38:56 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/19 14:32:36 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <pthread.h> //thread:create, join, mutex:init, destroy, lock, unlock
 # include <stdio.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <sys/time.h>
 # include <errno.h>
@@ -33,7 +34,7 @@ typedef enum e_fork_preference
 
 typedef struct	s_fork
 {
-	pthread_mutex_t	fork;
+	pthread_mutex_t	*fork;
 	t_bool	fork_status;
 	int	fork_id;
 }	t_fork;
@@ -61,15 +62,26 @@ typedef struct	s_table
 {
 	int		nbr_philo;
 	t_philo	*philo;
-	t_fork	fork;
+	t_fork	*fork;
 }			t_table;
 
 
 //philosophers.c
-void	build_philosophers(t_philo *philo, int nbr);
-void	philo_laterality(t_philo *philo);
+t_fork_preference	philo_laterality(t_philo *philo);
 
+// philo_life.c
 void	*philo_life(void *arg);
+void	eating(t_philo *philo);
+void	thinking(t_philo *philo);
+void	sleeping(t_philo *philo);
+
+// mutex.c
+void    init_mutex(t_table *table);
+void    destroy_mutex(t_table *table);
+
+// thread.c
+void    create_thread(t_table *table);
+void    join_thread(t_table *table);
 
 // validation.c
 t_bool	philo_checker(int argc, char *argv);
@@ -81,5 +93,7 @@ t_bool	left_hand(t_philo *philo);
 
 // table.c
 void	set_table(t_table *table, char *argv);
+void	set_philosophers(t_table *table, int nbr);
+void	assign_fork(t_table *table);
 
 #endif
