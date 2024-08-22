@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 20:03:42 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/22 20:26:00 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ void	set_table(t_table *table, char *argv)
 	table->nbr_philo = atol(argv);
 	table->philo = malloc(sizeof(t_philo) * table->nbr_philo);
 	table->fork = malloc(sizeof(t_fork) * table->nbr_philo);
-	set_philosophers(table, table->nbr_philo);
+	table->start_time = get_time();
 	init_mutex(table);
+	set_philosophers(table, table->nbr_philo);
 	create_thread(table);
 	join_thread(table);
 	destroy_mutex(table);
@@ -28,38 +29,43 @@ void	set_philosophers(t_table *table, int nbr)
 {
 	int i;
 	t_philo *philo;
-	i = -1;
 
-	while (++i < nbr)
+	i = -1;
+	while (++i <= nbr)
 	{
 		philo = &table->philo[i];
 		philo->id = i + 1;
-		assign_fork(table);
-		philo->right_fork.fork = malloc (sizeof (pthread_mutex_t));
-		philo->left_fork.fork = malloc (sizeof (pthread_mutex_t));
-		philo->life_status = EATING;
 		philo->preference = philo_laterality(philo);
-		philo->right_fork.fork_status = TRUE;
-		philo->left_fork.fork_status = TRUE;
+		philo->right_fork = &table->fork[i];
+		philo->left_fork = &table->fork[(i + 1) % nbr];
+		// assign_fork(philo);
+		philo->life_status = EATING;
+		// philo->right_fork.fork_status = TRUE;
+		// philo->left_fork.fork_status = TRUE;
+		// &data->forks_mutex[(i + data->philos_count - 1) % data->philos_count];
+		// assign_fork(table);
+		// table->philo[i].left_fork.fork_id = (i + 1) % table->nbr_philo;
+		// table->philo[i].right_fork.fork_id = i;
 	}
 }
 
-void	assign_fork(t_table *table)
-{
-	int	i;
+// void	assign_fork(t_philo *philo)
+// {
+// 	int	i;
 
-	i = -1;
-	while (++i < table->nbr_philo && table->philo->preference == RIGHT)
-	{
-		table->philo[i].left_fork.fork_id = (i + 1) % table->nbr_philo;
-		table->philo[i].right_fork.fork_id = i;
-	}
-	while (++i < table->nbr_philo && table->philo->preference == LEFT)
-	{
-		table->philo[i].right_fork.fork_id = i;
-		table->philo[i].left_fork.fork_id = (i + 1) % table->nbr_philo;
-	}
-}
+// 	i = 0;
+// 	if (philo->preference == RIGHT)
+// 	{
+// 		philo->left_fork = &philo->table->fork[(i + 1) % philo->table->nbr_philo];
+// 		philo->right_fork = &philo->table->fork[i];
+// 	}
+// 	else
+// 	{
+// 		philo->right_fork = &philo->table->fork[i];
+// 		philo->left_fork = &philo->table->fork[(i + 1) % philo->table->nbr_philo];
+// 	}
+
+// }
 
 t_fork_preference	philo_laterality(t_philo *philo)
 {

@@ -1,0 +1,1 @@
+gdbtui --ex 'b main' --ex 'b philo_life' --ex 'r 2 200 200 200 > /dev/null' --ex 'set scheduler-locking on' ./philo 

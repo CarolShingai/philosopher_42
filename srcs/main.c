@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 17:47:24 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/21 19:34:19 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/22 20:02:14 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ int	main(int argc, char **argv)
 
 	if (philo_checker(argc, argv[1]) == TRUE)
 	{
-		set_time(&table, **argv);
+		set_time(&table, argv);
 		set_table(&table, argv[1]);
-
 	}
 	return(0);
 }
