@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/22 20:26:00 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/23 20:34:36 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ void	set_philosophers(t_table *table, int nbr)
 	t_philo *philo;
 
 	i = -1;
-	while (++i <= nbr)
+	while (++i < nbr)
 	{
 		philo = &table->philo[i];
 		philo->id = i + 1;
 		philo->preference = philo_laterality(philo);
 		philo->right_fork = &table->fork[i];
 		philo->left_fork = &table->fork[(i + 1) % nbr];
+		philo->table = table;
 		// assign_fork(philo);
-		philo->life_status = EATING;
+		philo->life_status = TAKE_FORK;
 		// philo->right_fork.fork_status = TRUE;
 		// philo->left_fork.fork_status = TRUE;
 		// &data->forks_mutex[(i + data->philos_count - 1) % data->philos_count];
@@ -72,5 +73,5 @@ t_fork_preference	philo_laterality(t_philo *philo)
 	if (philo->id % 2 != 0)
 		return (RIGHT);
 	else
-		return(LEFT);
+		return (LEFT);
 }

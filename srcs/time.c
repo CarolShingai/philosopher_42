@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 19:22:32 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/22 17:36:30 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/23 20:25:17 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ long	get_time(void)
 
 void	ft_usleep(long time)
 {
-	long	start;
+	// long	start;
 
-	start = get_time();
+	// start = get_time();
 
-	while(get_time() - start < time)
-		usleep(time / 10);
+	// while(get_time() - start < time)
+	// 	usleep(time / 10);
+	usleep(time * 1000);
 }
 
 long	elapsed_time(t_table *table)
@@ -45,4 +46,5 @@ void	set_time(t_table *table, char **argv)
 	table->time_to_die = atol(argv[2]);
 	table->time_to_eat = atol(argv[3]);
 	table->time_to_sleep = atol(argv[4]);
+	table->max_meals = atol(argv[5]);
 }

@@ -3,8 +3,9 @@ FLAGS = -Wall -Werror -Wextra -pthread -g3
 HEADERS = -I ./include
 
 SRCS = ${addprefix srcs/, \
-				main.c \
 				philo_life.c \
+				print_mutex.c \
+				main.c \
 				mutex.c \
 				take_fork.c \
 				table.c \
@@ -21,9 +22,9 @@ $(NAME): $(OBJ)
 			@echo "compiling $(NAME)"
 
 obj/%.o: srcs/%.c
-			mkdir -p obj
+			@mkdir -p obj
 			@cc $(FLAGS) $(HEADERS) -c $< -o $@
-			@echo "compiling"
+			@echo "compiling $(notdir $<)"
 
 clean:
 			@echo "removing object files"

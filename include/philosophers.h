@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/22 20:22:38 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/23 20:49:49 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef enum	e_life
 	EATING,
 	THINKING,
 	SLEEPING,
+	TAKE_FORK,
 	DIED
 }			t_life;
 
@@ -51,26 +52,28 @@ typedef struct s_table t_table;
 
 struct s_philo
 {
-	int	id;
-	int	meals_count;
-	t_fork	*right_fork;
-	t_fork	*left_fork;
-	t_life	life_status;
-	t_table	*table;
+	int					id;
+	int					meals_count;
+	t_fork				*right_fork;
+	t_fork				*left_fork;
+	t_life				life_status;
+	t_table				*table;
 	t_fork_preference	preference;
-	pthread_t	philosopher;
+	pthread_t			philosopher;
+	pthread_mutex_t		*print;
 };
 
 struct s_table
 {
-	int		nbr_philo;
-	long	time_to_die;
-	long	time_to_eat;
-	long	time_to_sleep;
-	long	time_of_last_meal;
-	long	start_time;
-	t_philo	*philo;
-	t_fork	*fork;
+	int			nbr_philo;
+	long		time_to_die;
+	long		time_to_eat;
+	long		time_to_sleep;
+	long		max_meals;
+	long		time_of_last_meal;
+	long		start_time;
+	t_philo		*philo;
+	t_fork		*fork;
 };
 
 // philo_life.c
@@ -106,5 +109,8 @@ void	join_thread(t_table *table);
 
 // validation.c
 t_bool	philo_checker(int argc, char *argv);
+
+// print_mutex.c
+void	print_mutex(t_philo *philo, t_life status);
 
 #endif
