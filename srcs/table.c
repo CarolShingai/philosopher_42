@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 17:21:48 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:48:16 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ void	set_table(t_table *table, char **argv)
 	table->time_to_die = atol(argv[2]);
 	table->time_to_eat = atol(argv[3]);
 	table->time_to_sleep = atol(argv[4]);
-	table->max_meals = atol(argv[5]);
+	if (argv[5])
+		table->max_meals = atol(argv[5]);
+	else
+		table->max_meals = -1;
 	init_mutex(table);
 	set_philosophers(table, table->nbr_philo);
 	create_thread(table);
@@ -38,11 +41,12 @@ void	set_philosophers(t_table *table, int nbr)
 	while (++i < nbr)
 	{
 		philo = &table->philo[i];
-		philo->id = i + 1;
+		philo->id = i;
 		philo->preference = philo_laterality(philo);
 		philo->right_fork = &table->fork[i];
 		philo->left_fork = &table->fork[(i + 1) % nbr];
 		philo->table = table;
+		philo->meals_count = 0;
 		// assign_fork(philo);
 		philo->life_status = TAKE_FORK;
 		// philo->right_fork.fork_status = TRUE;

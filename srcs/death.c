@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mutex.c                                            :+:      :+:    :+:   */
+/*   death.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 00:48:10 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 19:22:25 by cshingai         ###   ########.fr       */
+/*   Created: 2024/08/27 20:08:27 by cshingai          #+#    #+#             */
+/*   Updated: 2024/08/27 20:41:39 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-void	init_mutex(t_table *table)
+void	is_philo_dead(t_philo *philo)
 {
-	int i;
+	long		now;
+	long		last_meal;
+	long		since_last_meal;
 
-	i = 0;
-	pthread_mutex_init(&table->print, NULL);
-	while (i < table->nbr_philo)
-	{
-		pthread_mutex_init(&table->fork[i].fork, NULL);
-		i++;
-	}
-}
-
-void	destroy_mutex(t_table *table)
-{
-	int i;
-
-	i = 0;
-	pthread_mutex_destroy(&table->print);
-	while (i < table->nbr_philo)
-	{
-		pthread_mutex_destroy(&table->fork[i].fork);
-		i++;
-	}
+	now = elapsed_time(philo->table);
+	last_meal = philo->last_meal_time;
+	since_last_meal = now - last_meal;
+	if (since_last_meal > philo->table->time_to_die)
+		philo->life_status == DIED;
 }

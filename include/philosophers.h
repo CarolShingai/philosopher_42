@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 17:57:43 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:34:42 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ struct s_philo
 {
 	int					id;
 	int					meals_count;
+	long				last_meal_time;
 	t_fork				*right_fork;
 	t_fork				*left_fork;
 	t_life				life_status;
 	t_table				*table;
 	t_fork_preference	preference;
 	pthread_t			philosopher;
-	pthread_mutex_t		*print;
 };
 
 struct s_table
@@ -72,6 +72,7 @@ struct s_table
 	long		max_meals;
 	long		time_of_last_meal;
 	long		start_time;
+	pthread_mutex_t	print;
 	t_philo		*philo;
 	t_fork		*fork;
 };
@@ -113,7 +114,7 @@ t_bool	is_alldigits(int argc, char **argv);
 
 // utils.c
 void	print_mutex(t_philo *philo, t_life status);
-int	ft_isdigit(int c);
-int	ft_strlen(char *str);
+int		ft_isdigit(int c);
+int		ft_strlen(char *str);
 
 #endif

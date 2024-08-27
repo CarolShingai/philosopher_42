@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:09:11 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 17:52:49 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:26:25 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 // Remove time
 void	print_mutex(t_philo *philo, t_life status)
 {
-	struct timeval	now;
+	// struct timeval	now;
 	// struct timeval	start;
 
-	gettimeofday(&now, NULL);
-	pthread_mutex_lock(philo->print);
+	pthread_mutex_lock(&philo->table->print);
+	// gettimeofday(&now, NULL);
 	if (status == TAKE_FORK)
 		printf("time:%ld philosopher:%d has taken a fork\n", elapsed_time(philo->table), philo->id);
 	else if (status == EATING)
@@ -28,7 +28,7 @@ void	print_mutex(t_philo *philo, t_life status)
 		printf("time:%ld philosopher %d is sleeping\n", elapsed_time(philo->table), philo->id);
 	else if (status == THINKING)
 		printf("time:%ld philosopher %d is thinking\n", elapsed_time(philo->table), philo->id);
-	pthread_mutex_unlock(philo->print);
+	pthread_mutex_unlock(&philo->table->print);
 }
 
 int	ft_isdigit(int c)
