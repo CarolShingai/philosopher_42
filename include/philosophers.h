@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/23 20:49:49 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:57:43 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	right_hand(t_philo *philo);
 void	left_hand(t_philo *philo);
 
 // table.c
-void	set_table(t_table *table, char *argv);
+void	set_table(t_table *table, char **argv);
 void	set_philosophers(t_table *table, int nbr);
 void	assign_fork(t_philo *philo);
 t_fork_preference	philo_laterality(t_philo *philo);
@@ -108,9 +108,12 @@ void	create_thread(t_table *table);
 void	join_thread(t_table *table);
 
 // validation.c
-t_bool	philo_checker(int argc, char *argv);
+t_bool	philo_checker(int argc, char **argv);
+t_bool	is_alldigits(int argc, char **argv);
 
-// print_mutex.c
+// utils.c
 void	print_mutex(t_philo *philo, t_life status);
+int	ft_isdigit(int c);
+int	ft_strlen(char *str);
 
 #endif

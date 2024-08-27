@@ -4,13 +4,13 @@ HEADERS = -I ./include
 
 SRCS = ${addprefix srcs/, \
 				philo_life.c \
-				print_mutex.c \
 				main.c \
 				mutex.c \
 				take_fork.c \
 				table.c \
 				thread.c \
 				time.c \
+				utils.c \
 				validation.c }
 
 OBJ = $(SRCS:srcs/%.c=obj/%.o)

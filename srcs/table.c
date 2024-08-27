@@ -6,18 +6,22 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/23 20:34:36 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:21:48 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-void	set_table(t_table *table, char *argv)
+void	set_table(t_table *table, char **argv)
 {
-	table->nbr_philo = atol(argv);
+	table->nbr_philo = atol(argv[1]);
 	table->philo = malloc(sizeof(t_philo) * table->nbr_philo);
 	table->fork = malloc(sizeof(t_fork) * table->nbr_philo);
 	table->start_time = get_time();
+	table->time_to_die = atol(argv[2]);
+	table->time_to_eat = atol(argv[3]);
+	table->time_to_sleep = atol(argv[4]);
+	table->max_meals = atol(argv[5]);
 	init_mutex(table);
 	set_philosophers(table, table->nbr_philo);
 	create_thread(table);

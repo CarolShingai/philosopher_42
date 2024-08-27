@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 19:22:32 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/23 20:25:17 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:22:17 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ long	elapsed_time(t_table *table)
 	return(time);
 }
 
-void	set_time(t_table *table, char **argv)
-{
-	table->time_to_die = atol(argv[2]);
-	table->time_to_eat = atol(argv[3]);
-	table->time_to_sleep = atol(argv[4]);
-	table->max_meals = atol(argv[5]);
-}
+// void	set_time(t_table *table, char **argv)
+// {
+
+// }
