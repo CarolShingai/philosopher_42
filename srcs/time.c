@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 19:22:32 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 17:22:17 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/28 19:30:18 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,3 @@ long	elapsed_time(t_table *table)
 	time = get_time() - table->start_time;
 	return(time);
 }
-
-// void	set_time(t_table *table, char **argv)
-// {
-
-// }

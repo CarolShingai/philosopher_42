@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 20:38:27 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/28 20:39:32 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	*philo_life(void *arg)
 			sleeping(philo);
 		else if (philo->life_status == THINKING)
 			thinking(philo);
-		printf("meals:%d\n", philo->meals_count);
+		printf("meal_time:%ld\n", philo->last_meal_time);
+		// printf("meals:%d\n", philo->meals_count);
 		philo->meals_count += 1;
 		if (philo->table->max_meals != -1
 			&& philo->meals_count > philo->table->max_meals)
@@ -53,12 +54,7 @@ void	eating(t_philo *philo)
 
 void	thinking(t_philo *philo)
 {
-	// pthread_mutex_lock(&philo->right_fork->fork);
-	// pthread_mutex_lock(&philo->left_fork->fork);
-	// printf("Philosopher %d is thinking\n", philo->id);
 	print_mutex(philo, philo->life_status);
-	// pthread_mutex_unlock(&philo->right_fork->fork);
-	// pthread_mutex_unlock(&philo->left_fork->fork);
 	philo->life_status = EATING;
 }
 

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 20:34:42 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/28 20:12:26 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ struct s_table
 	t_fork		*fork;
 };
 
+// death.c
+void	is_philo_dead(t_philo *philo);
+void	monitoring(t_table *table);
+
 // philo_life.c
 void	*philo_life(void *arg);
 void	eating(t_philo *philo);
@@ -105,7 +109,7 @@ void	assign_fork(t_philo *philo);
 t_fork_preference	philo_laterality(t_philo *philo);
 
 // thread.c
-void	create_thread(t_table *table);
+t_bool	create_thread(t_table *table);
 void	join_thread(t_table *table);
 
 // validation.c

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 18:25:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 20:02:56 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/28 19:44:41 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	take_fork(t_philo *philo)
 {
-	// printf("fork: entrou\n");
 	if (philo->preference == RIGHT)
 	{
 		right_hand(philo);

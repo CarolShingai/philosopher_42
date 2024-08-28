@@ -3,6 +3,7 @@ FLAGS = -Wall -Werror -Wextra -pthread -g3
 HEADERS = -I ./include
 
 SRCS = ${addprefix srcs/, \
+				death.c \
 				philo_life.c \
 				main.c \
 				mutex.c \

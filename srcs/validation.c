@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 19:45:30 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/27 19:15:49 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/28 19:30:50 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ t_bool	is_alldigits(int argc, char **argv)
 	{
 		len = ft_strlen(argv[i]);
 		j = 0;
-		// printf("char:%s bool:%d\n", &argv[i][j], ft_isdigit(argv[i][j]));
 		while (j < len)
 		{
 			if (ft_isdigit(argv[i][j]))
