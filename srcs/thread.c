@@ -6,13 +6,13 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 23:19:55 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 20:13:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/29 20:59:21 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-t_bool	create_thread(t_table *table)
+void	create_thread(t_table *table)
 {
 	int	i;
 	int	n_create;
@@ -23,13 +23,10 @@ t_bool	create_thread(t_table *table)
 		n_create = pthread_create(&table->philo[i].philosopher, NULL,
 			philo_life, &table->philo[i]);
 		if(n_create != 0)
-		{
 			printf("Error creating thread %d\n", i);
-			return(FALSE);
-		}
 		i++;
 	}
-	return(TRUE);
+	// pthread_create(&table->thread, NULL, monitoring, table);
 }
 
 void	join_thread(t_table *table)

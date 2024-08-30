@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 20:12:43 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/29 20:54:52 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@ void	set_table(t_table *table, char **argv)
 	table->time_to_die = atol(argv[2]);
 	table->time_to_eat = atol(argv[3]);
 	table->time_to_sleep = atol(argv[4]);
+	table->rip_var = FALSE;
 	if (argv[5])
 		table->max_meals = atol(argv[5]);
 	else
 		table->max_meals = -1;
 	init_mutex(table);
 	set_philosophers(table, table->nbr_philo);
-	monitoring(table);
-	// create_thread(table);
+	// monitoring(table);
+	create_thread(table);
 	join_thread(table);
 	destroy_mutex(table);
 }

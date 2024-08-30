@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:09:11 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 20:03:06 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:24:47 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	print_mutex(t_philo *philo, t_life status)
 {
-
 	pthread_mutex_lock(&philo->table->print);
 	if (status == TAKE_FORK)
 		printf("time:%ld philosopher:%d has taken a fork\n", elapsed_time(philo->table), philo->id);

@@ -6,37 +6,55 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:08:27 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 20:56:43 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/08/29 21:00:18 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-void	is_philo_dead(t_philo *philo)
+t_bool	is_philo_dead(t_philo *philo)
 {
-	long		now;
 	long		last_meal;
 	long		since_last_meal;
 
-	now = elapsed_time(philo->table);
 	last_meal = philo->last_meal_time;
-	since_last_meal = now - last_meal;
-	printf("slm:%ld\n", since_last_meal);
+	since_last_meal = get_time() - last_meal;
+	// printf("slm:%ld\n", since_last_meal);
 	if (since_last_meal > philo->table->time_to_die)
+	{
 		philo->life_status = DIED;
+		// philo->table->rip_var = TRUE;
+		print_mutex(philo->table->philo, philo->life_status);
+		return(TRUE);
+	}
+	else
+		return(FALSE);
 }
 
-void	monitoring(t_table *table)
+/*
+A create_thread vai inicialiazr essa função,
+mais simples
+um loop numa thread separada
+checando cada um dos philosophers se estao vivos
+*/
+void	*monitoring(void *arg)
 {
-	create_thread(table);
-	if (table->philo->life_status != DIED)
+	int	i;
+	t_table *table;
+
+	i = 0;
+	table = (t_table *) arg;
+	while(1)
 	{
-		printf("entrou");
-		is_philo_dead(table->philo);
-		// if (table->philo->life_status == DIED)
-		// {
-			print_mutex(table->philo, table->philo->life_status);
-			// break ;
-		// }
+		ft_usleep(100);
+		if (i == table->nbr_philo)
+			i = 0;
+		if (is_philo_dead(table->philo))
+			break ;
+		i++;
 	}
+	print_mutex(table->philo, table->philo->life_status);
+	// break ;
+	// }
+	return (NULL);
 }
