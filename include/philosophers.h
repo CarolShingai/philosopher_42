@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/29 20:56:56 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:50:32 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ struct s_table
 	long		start_time;
 	t_bool		rip_var;
 	pthread_mutex_t	print;
-	pthread_t	thread;
+	// pthread_t	thread;
 	t_philo		*philo;
 	t_fork		*fork;
 };

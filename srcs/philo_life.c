@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/29 20:12:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:07:19 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*philo_life(void *arg)
 			sleeping(philo);
 		else if (philo->life_status == THINKING)
 			thinking(philo);
-		printf("meal_time:%ld\n", philo->last_meal_time);
+		// printf("meal_time:%ld\n", philo->last_meal_time);
 		// printf("meals:%d\n", philo->meals_count);
 		if (philo->table->max_meals != -1
 			&& philo->meals_count > philo->table->max_meals)
@@ -37,23 +37,6 @@ void	*philo_life(void *arg)
 	}
 	return(NULL);
 }
-
-// void	philo_action(t_philo *philo)
-// {
-// 	if (philo->life_status == TAKE_FORK)
-// 		take_fork(philo);
-// 	if (philo->life_status == EATING)
-// 		eating(philo);
-// 	else if (philo->life_status == SLEEPING)
-// 		sleeping(philo);
-// 	else if (philo->life_status == THINKING)
-// 		thinking(philo);
-// 	printf("meal_time:%ld\n", philo->last_meal_time);
-// 	// printf("meals:%d\n", philo->meals_count);
-// 	if (philo->table->max_meals != -1
-// 		&& philo->meals_count > philo->table->max_meals)
-// 		return ;
-// }
 
 void	eating(t_philo *philo)
 {
@@ -80,7 +63,5 @@ void	sleeping(t_philo *philo)
 	// printf("Philosopher %d is sleeping\n", philo->id);
 	print_mutex(philo, philo->life_status);
 	ft_usleep(philo->table->time_to_eat);
-	// usleep(philo->table->time_to_sleep);
-	// usleep(100000);
 	philo->life_status = THINKING;
 }

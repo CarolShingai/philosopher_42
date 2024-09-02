@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:08:27 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/29 21:00:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:41:03 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	*monitoring(void *arg)
 	while(1)
 	{
 		ft_usleep(100);
+		
 		if (i == table->nbr_philo)
 			i = 0;
 		if (is_philo_dead(table->philo))
