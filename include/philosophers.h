@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/02 21:13:23 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:28:59 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ typedef enum e_fork_preference
 	LEFT = 0
 }	t_fork_preference;
 
-typedef struct	s_fork
+typedef struct s_fork
 {
 	pthread_mutex_t	fork;
 	int				fork_id;
 }	t_fork;
 
-typedef enum	e_life
+typedef enum e_life
 {
 	EATING,
 	THINKING,
 	SLEEPING,
 	TAKE_FORK,
 	DIED
-}			t_life;
+}	t_life;
 
-typedef struct s_philo t_philo;
-typedef struct s_table t_table;
+typedef struct s_philo	t_philo;
+typedef struct s_table	t_table;
 
 struct s_philo
 {
@@ -65,61 +65,67 @@ struct s_philo
 
 struct s_table
 {
-	int			nbr_philo;
-	long		time_to_die;
-	long		time_to_eat;
-	long		time_to_sleep;
-	long		max_meals;
-	long		time_of_last_meal;
-	long		start_time;
+	int				nbr_philo;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
+	long			max_meals;
+	long			time_of_last_meal;
+	long			start_time;
+	pthread_mutex_t	death_checker;
 	pthread_mutex_t	print;
-	t_philo		*philo;
-	t_bool		rip_philo;
-	t_fork		*fork;
+	pthread_mutex_t	mutex_all;
+	pthread_mutex_t	mutex_all_2;
+	pthread_t		monitor;
+	t_philo			*philo;
+	t_bool			rip_philo;
+	t_fork			*fork;
 };
 
 // death.c
-t_bool	is_philo_dead(t_philo *philo);
-void	*monitoring(void *arg);
+t_bool				is_philo_dead(t_philo *philo);
+void				*monitoring(void *arg);
 
 // philo_life.c
-void	*philo_life(void *arg);
-void	eating(t_philo *philo);
-void	thinking(t_philo *philo);
-void	sleeping(t_philo *philo);
+void				*philo_life(void *arg);
+void				eating(t_philo *philo);
+void				thinking(t_philo *philo);
+void				sleeping(t_philo *philo);
 
 // time.c
-long	get_time(void);
-long	elapsed_time(t_table *table);
-void	set_time(t_table *table, char **argv);
-void	ft_usleep(long time);
+long				get_time(void);
+long				elapsed_time(t_table *table);
+void				set_time(t_table *table, char **argv);
+void				ft_usleep(long time);
 
 // mutex.c
-void	init_mutex(t_table *table);
-void	destroy_mutex(t_table *table);
+void				init_mutex(t_table *table);
+void				destroy_mutex(t_table *table);
 
 // take_fork.c
-void	take_fork(t_philo *philo);
-void	right_hand(t_philo *philo);
-void	left_hand(t_philo *philo);
+void				take_fork(t_philo *philo);
+void				right_hand(t_philo *philo);
+void				left_hand(t_philo *philo);
 
 // table.c
-void	set_table(t_table *table, char **argv);
-void	set_philosophers(t_table *table, int nbr);
-void	assign_fork(t_philo *philo);
+void				set_table(t_table *table, char **argv);
+void				set_philosophers(t_table *table, int nbr);
+void				assign_fork(t_philo *philo);
 t_fork_preference	philo_laterality(t_philo *philo);
 
+//the create_thread is where the thread(philosophers) are created
 // thread.c
-void	create_thread(t_table *table);
-void	join_thread(t_table *table);
+void				create_thread(t_table *table);
+void				join_thread(t_table *table);
 
 // validation.c
-t_bool	philo_checker(int argc, char **argv);
-t_bool	is_alldigits(int argc, char **argv);
+t_bool				philo_checker(int argc, char **argv);
+t_bool				is_alldigits(int argc, char **argv);
 
 // utils.c
-void	print_mutex(t_philo *philo, t_life status);
-int		ft_isdigit(int c);
-int		ft_strlen(char *str);
+void				print_mutex(t_philo *philo, t_life status);
+int					ft_isdigit(int c);
+int					ft_strlen(char *str);
+long				ft_atol(const char *str);
 
 #endif

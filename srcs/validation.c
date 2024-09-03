@@ -6,14 +6,12 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 19:45:30 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 19:30:50 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:32:40 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-//argc must 5 or 6
-//argv[1] must no surpace 200
 t_bool	philo_checker(int argc, char **argv)
 {
 	int	nbr;
@@ -24,15 +22,15 @@ t_bool	philo_checker(int argc, char **argv)
 		if (is_alldigits(argc, argv) == TRUE)
 		{
 			if (nbr > 0 && nbr <= 200)
-				return(TRUE);
+				return (TRUE);
 			else
-				return(perror("Invalid number of philosophers."), FALSE);
+				return (write(2, "Invalid number of philosophers.", 32), FALSE);
 		}
 		else
-			return(perror("Invalid argument."), FALSE);
+			return (write(2, "Invalid argument.", 18), FALSE);
 	}
 	else
-		return(perror("Invalid number of arguments."), FALSE);
+		return (write(2, "Invalid number of arguments.", 29), FALSE);
 }
 
 t_bool	is_alldigits(int argc, char **argv)
@@ -42,7 +40,7 @@ t_bool	is_alldigits(int argc, char **argv)
 	int	len;
 
 	i = 0;
-	while(++i < argc)
+	while (++i < argc)
 	{
 		len = ft_strlen(argv[i]);
 		j = 0;

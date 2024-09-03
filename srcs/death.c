@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:08:27 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/02 21:14:50 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:21:41 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,32 @@ t_bool	is_philo_dead(t_philo *philo)
 		philo->table->rip_philo = TRUE;
 		pthread_mutex_unlock(&philo->table->mutex_all_2);
 		print_mutex(philo->table->philo, DIED);
-		return(TRUE);
+		return (TRUE);
 	}
 	else
-		return(FALSE);
+		return (FALSE);
 }
 
 void	*monitoring(void *arg)
 {
-	int	i;
-	t_table *table;
+	int		i;
+	t_table	*table;
 
 	i = 0;
 	table = (t_table *) arg;
 	while (1)
 	{
 		ft_usleep(100);
-		pthread_mutex_lock(&table->death_cheacker);
+		pthread_mutex_lock(&table->death_checker);
 		if (i == table->nbr_philo)
 			i = 0;
 		if (is_philo_dead(table->philo) == TRUE)
 		{
-			pthread_mutex_unlock(&table->death_cheacker);
+			pthread_mutex_unlock(&table->death_checker);
 			break ;
 		}
 		i++;
-		pthread_mutex_unlock(&table->death_cheacker);
+		pthread_mutex_unlock(&table->death_checker);
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/02 21:15:36 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:29:35 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	set_table(t_table *table, char **argv)
 {
-	table->nbr_philo = atol(argv[1]);
+	table->nbr_philo = ft_atol(argv[1]);
 	table->philo = malloc(sizeof(t_philo) * table->nbr_philo);
 	table->fork = malloc(sizeof(t_fork) * table->nbr_philo);
 	table->start_time = get_time();
 	table->philo->last_meal_time = get_time();
-	table->time_to_die = atol(argv[2]);
-	table->time_to_eat = atol(argv[3]);
-	table->time_to_sleep = atol(argv[4]);
+	table->time_to_die = ft_atol(argv[2]);
+	table->time_to_eat = ft_atol(argv[3]);
+	table->time_to_sleep = ft_atol(argv[4]);
 	table->rip_philo = FALSE;
 	if (argv[5])
-		table->max_meals = atol(argv[5]);
+		table->max_meals = ft_atol(argv[5]);
 	else
 		table->max_meals = -1;
 	init_mutex(table);
@@ -37,8 +37,8 @@ void	set_table(t_table *table, char **argv)
 
 void	set_philosophers(t_table *table, int nbr)
 {
-	int i;
-	t_philo *philo;
+	int		i;
+	t_philo	*philo;
 
 	i = -1;
 	while (++i < nbr)
