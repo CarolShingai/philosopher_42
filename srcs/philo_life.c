@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 18:54:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 20:33:41 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	check_life(t_philo *philo)
 
 void	*philo_life(void *arg)
 {
-	t_philo		*philo;
 	static void	(*f[4])(t_philo *) = {take_fork, eating, sleeping, thinking};
+	t_philo		*philo;
 	int			i;
 
-	philo = (t_philo *) arg;
 	i = 0;
+	philo = (t_philo *) arg;
 	if (philo == NULL)
 		write(2, "philo is NULL", 14);
 	while (check_life(philo))
