@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:08:27 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/02 16:41:03 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 21:14:50 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,23 @@ t_bool	is_philo_dead(t_philo *philo)
 	long		last_meal;
 	long		since_last_meal;
 
+	pthread_mutex_lock(&philo->table->mutex_all);
 	last_meal = philo->last_meal_time;
+	pthread_mutex_unlock(&philo->table->mutex_all);
 	since_last_meal = get_time() - last_meal;
-	// printf("slm:%ld\n", since_last_meal);
 	if (since_last_meal > philo->table->time_to_die)
 	{
+		pthread_mutex_lock(&philo->table->mutex_all_2);
 		philo->life_status = DIED;
-		// philo->table->rip_var = TRUE;
-		print_mutex(philo->table->philo, philo->life_status);
+		philo->table->rip_philo = TRUE;
+		pthread_mutex_unlock(&philo->table->mutex_all_2);
+		print_mutex(philo->table->philo, DIED);
 		return(TRUE);
 	}
 	else
 		return(FALSE);
 }
 
-/*
-A create_thread vai inicialiazr essa função,
-mais simples
-um loop numa thread separada
-checando cada um dos philosophers se estao vivos
-*/
 void	*monitoring(void *arg)
 {
 	int	i;
@@ -44,18 +41,19 @@ void	*monitoring(void *arg)
 
 	i = 0;
 	table = (t_table *) arg;
-	while(1)
+	while (1)
 	{
 		ft_usleep(100);
-		
+		pthread_mutex_lock(&table->death_cheacker);
 		if (i == table->nbr_philo)
 			i = 0;
-		if (is_philo_dead(table->philo))
+		if (is_philo_dead(table->philo) == TRUE)
+		{
+			pthread_mutex_unlock(&table->death_cheacker);
 			break ;
+		}
 		i++;
+		pthread_mutex_unlock(&table->death_cheacker);
 	}
-	print_mutex(table->philo, table->philo->life_status);
-	// break ;
-	// }
 	return (NULL);
 }

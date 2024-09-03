@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 23:19:55 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/02 16:45:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 21:15:56 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	create_thread(t_table *table)
 			printf("Error creating thread %d\n", i);
 		i++;
 	}
-	// pthread_create(&table->thread, NULL, monitoring, table);
 }
 
 void	join_thread(t_table *table)

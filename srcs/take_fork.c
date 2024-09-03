@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 18:25:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 19:44:41 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 20:26:43 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	take_fork(t_philo *philo)
 		left_hand(philo);
 		right_hand(philo);
 	}
-	philo->life_status = EATING;
+	// pthread_mutex_lock(&philo->table->mutex_all_2);
+	// philo->life_status = EATING;
+	// pthread_mutex_unlock(&philo->table->mutex_all_2);
 }
 
 void	right_hand(t_philo *philo)
@@ -34,7 +36,7 @@ void	right_hand(t_philo *philo)
 	lock = pthread_mutex_lock(&philo->right_fork->fork);
 	if (lock != 0)
 		printf("Error in lock function\n");
-	print_mutex(philo, philo->life_status);
+	print_mutex(philo, TAKE_FORK);
 }
 
 void	left_hand(t_philo *philo)
@@ -44,5 +46,5 @@ void	left_hand(t_philo *philo)
 	lock = pthread_mutex_lock(&philo->left_fork->fork);
 	if (lock != 0)
 		printf("Error in lock function\n");
-	print_mutex(philo, philo->life_status);
+	print_mutex(philo, TAKE_FORK);
 }

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/02 16:50:32 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 21:13:23 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,9 @@ struct s_table
 	long		max_meals;
 	long		time_of_last_meal;
 	long		start_time;
-	t_bool		rip_var;
 	pthread_mutex_t	print;
-	// pthread_t	thread;
 	t_philo		*philo;
+	t_bool		rip_philo;
 	t_fork		*fork;
 };
 
