@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:08:27 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 18:21:41 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:51:26 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ void	*monitoring(void *arg)
 	{
 		ft_usleep(100);
 		pthread_mutex_lock(&table->death_checker);
+		if (table->max_meals == table->philo->meals_count)
+		{
+			pthread_mutex_unlock(&table->death_checker);
+			break ;
+		}
 		if (i == table->nbr_philo)
 			i = 0;
 		if (is_philo_dead(table->philo) == TRUE)
