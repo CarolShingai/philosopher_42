@@ -1,0 +1,643 @@
+entrouentroutime:0 philosopher:0 has taken a fork
+time:0 philosopher:0 has taken a fork
+time:0 philosopher 0 is eating
+time:0 philosopher:2 has taken a fork
+time:0 philosopher:2 has taken a fork
+time:0 philosopher 2 is eating
+meal_time:200
+meal_time:200
+time:200 philosopher 0 is sleeping
+time:200 philosopher:1 has taken a fork
+time:200 philosopher:1 has taken a fork
+time:200 philosopher 1 is eating
+time:200 philosopher 2 is sleeping
+time:200 philosopher:3 has taken a fork
+time:200 philosopher:3 has taken a fork
+time:200 philosopher 3 is eating
+meal_time:200
+time:400 philosopher 2 is thinking
+meal_time:200
+time:400 philosopher 2 is eating
+meal_time:400
+meal_time:200
+time:400 philosopher 0 is thinking
+meal_time:200
+time:400 philosopher 0 is eating
+time:400 philosopher 1 is sleeping
+meal_time:400
+time:400 philosopher 3 is sleeping
+meal_time:600
+time:600 philosopher 2 is sleeping
+meal_time:600
+time:601 philosopher 0 is sleeping
+meal_time:400
+time:601 philosopher 1 is thinking
+meal_time:400
+time:601 philosopher 1 is eating
+meal_time:400
+time:601 philosopher 3 is thinking
+meal_time:400
+time:601 philosopher 3 is eating
+meal_time:600
+time:801 philosopher 2 is thinking
+meal_time:600
+time:801 philosopher 2 is eating
+meal_time:600
+meal_time:801
+time:801 philosopher 0 is thinking
+meal_time:801
+time:801 philosopher 1 is sleeping
+meal_time:600
+time:801 philosopher 0 is eating
+time:801 philosopher 3 is sleeping
+meal_time:1001
+time:1001 philosopher 2 is sleeping
+meal_time:801
+time:1001 philosopher 1 is thinking
+meal_time:801
+time:1001 philosopher 1 is eating
+meal_time:1001
+time:1001 philosopher 0 is sleeping
+meal_time:801
+time:1001 philosopher 3 is thinking
+meal_time:801
+time:1001 philosopher 3 is eating
+meal_time:1001
+time:1201 philosopher 2 is thinking
+meal_time:1001
+time:1201 philosopher 2 is eating
+meal_time:1201
+time:1201 philosopher 1 is sleeping
+meal_time:1001
+time:1201 philosopher 0 is thinking
+meal_time:1001
+time:1201 philosopher 0 is eating
+meal_time:1202
+time:1202 philosopher 3 is sleeping
+meal_time:1401
+time:1401 philosopher 2 is sleeping
+meal_time:1401
+time:1401 philosopher 0 is sleeping
+meal_time:1201
+time:1401 philosopher 1 is thinking
+meal_time:1201
+time:1401 philosopher 1 is eating
+meal_time:1202
+time:1402 philosopher 3 is thinking
+meal_time:1202
+time:1402 philosopher 3 is eating
+meal_time:1401
+time:1601 philosopher 2 is thinking
+meal_time:1401
+time:1601 philosopher 2 is eating
+meal_time:1401
+time:1601 philosopher 0 is thinking
+meal_time:1401
+time:1601 philosopher 0 is eating
+meal_time:1601
+time:1601 philosopher 1 is sleeping
+meal_time:1602
+time:1602 philosopher 3 is sleeping
+meal_time:1801
+time:1801 philosopher 2 is sleeping
+meal_time:1801
+time:1801 philosopher 0 is sleeping
+meal_time:1601
+time:1801 philosopher 1 is thinking
+meal_time:1601
+time:1801 philosopher 1 is eating
+meal_time:1602
+time:1802 philosopher 3 is thinking
+meal_time:1602
+time:1802 philosopher 3 is eating
+meal_time:1801
+time:2001 philosopher 2 is thinking
+meal_time:1801
+time:2001 philosopher 2 is eating
+meal_time:1801
+time:2001 philosopher 0 is thinking
+meal_time:1801
+time:2001 philosopher 0 is eating
+meal_time:2001
+time:2001 philosopher 1 is sleeping
+meal_time:2002
+time:2002 philosopher 3 is sleeping
+meal_time:2201
+time:2202 philosopher 2 is sleeping
+meal_time:2202
+time:2202 philosopher 0 is sleeping
+meal_time:2001
+time:2202 philosopher 1 is thinking
+meal_time:2001
+time:2202 philosopher 1 is eating
+meal_time:2002
+time:2202 philosopher 3 is thinking
+meal_time:2002
+time:2202 philosopher 3 is eating
+meal_time:2202
+meal_time:2201
+time:2402 philosopher 2 is thinking
+meal_time:2201
+time:2402 philosopher 2 is eating
+time:2402 philosopher 0 is thinking
+meal_time:2202
+time:2402 philosopher 0 is eating
+meal_time:2402
+time:2402 philosopher 1 is sleeping
+meal_time:2402
+time:2402 philosopher 3 is sleeping
+meal_time:2602
+time:2602 philosopher 2 is sleeping
+meal_time:2402
+time:2602 philosopher 1 is thinking
+meal_time:2402
+time:2602 philosopher 1 is eating
+meal_time:2602
+time:2602 philosopher 0 is sleeping
+meal_time:2402
+time:2602 philosopher 3 is thinking
+meal_time:2402
+time:2602 philosopher 3 is eating
+meal_time:2602
+time:2802 philosopher 2 is thinking
+meal_time:2602
+time:2802 philosopher 2 is eating
+meal_time:2802
+time:2802 philosopher 1 is sleeping
+meal_time:2602
+time:2802 philosopher 0 is thinking
+meal_time:2602
+time:2802 philosopher 0 is eating
+meal_time:2803
+time:2803 philosopher 3 is sleeping
+meal_time:3002
+time:3002 philosopher 2 is sleeping
+meal_time:2802
+time:3002 philosopher 1 is thinking
+meal_time:2802
+time:3002 philosopher 1 is eating
+meal_time:3002
+time:3002 philosopher 0 is sleeping
+meal_time:2803
+time:3003 philosopher 3 is thinking
+meal_time:2803
+time:3003 philosopher 3 is eating
+meal_time:3002
+time:3202 philosopher 2 is thinking
+meal_time:3002
+time:3202 philosopher 2 is eating
+meal_time:3202
+time:3202 philosopher 1 is sleeping
+meal_time:3002
+time:3202 philosopher 0 is thinking
+meal_time:3002
+time:3202 philosopher 0 is eating
+meal_time:3203
+time:3203 philosopher 3 is sleeping
+meal_time:3202
+time:3402 philosopher 1 is thinking
+meal_time:3202
+meal_time:3402
+time:3402 philosopher 1 is eating
+time:3402 philosopher 2 is sleeping
+meal_time:3402
+time:3402 philosopher 0 is sleeping
+meal_time:3203
+time:3403 philosopher 3 is thinking
+meal_time:3203
+time:3403 philosopher 3 is eating
+meal_time:3402
+meal_time:3602
+time:3602 philosopher 2 is thinking
+meal_time:3402
+time:3602 philosopher 0 is thinking
+meal_time:3402
+time:3602 philosopher 0 is eating
+meal_time:3402
+time:3602 philosopher 2 is eating
+time:3602 philosopher 1 is sleeping
+meal_time:3603
+time:3603 philosopher 3 is sleeping
+meal_time:3802
+time:3802 philosopher 0 is sleeping
+meal_time:3602
+time:3802 philosopher 1 is thinking
+meal_time:3602
+time:3802 philosopher 1 is eating
+meal_time:3802
+time:3802 philosopher 2 is sleeping
+meal_time:3603
+time:3803 philosopher 3 is thinking
+meal_time:3603
+time:3803 philosopher 3 is eating
+meal_time:3802
+time:4002 philosopher 0 is thinking
+meal_time:3802
+time:4002 philosopher 0 is eating
+meal_time:3802
+time:4002 philosopher 2 is thinking
+meal_time:3802
+time:4002 philosopher 2 is eating
+meal_time:4003
+time:4003 philosopher 1 is sleeping
+meal_time:4003
+time:4003 philosopher 3 is sleeping
+meal_time:4203
+time:4203 philosopher 0 is sleeping
+meal_time:4203
+time:4203 philosopher 2 is sleeping
+meal_time:4003
+time:4203 philosopher 1 is thinking
+meal_time:4003
+time:4203 philosopher 1 is eating
+meal_time:4003
+time:4203 philosopher 3 is thinking
+meal_time:4003
+time:4203 philosopher 3 is eating
+meal_time:4203
+time:4403 philosopher 0 is thinking
+meal_time:4203
+time:4403 philosopher 0 is eating
+meal_time:4403
+time:4403 philosopher 1 is sleeping
+meal_time:4203
+time:4403 philosopher 2 is thinking
+meal_time:4203
+time:4403 philosopher 2 is eating
+meal_time:4403
+time:4403 philosopher 3 is sleeping
+meal_time:4603
+time:4603 philosopher 0 is sleeping
+meal_time:4603
+time:4603 philosopher 2 is sleeping
+meal_time:4403
+time:4603 philosopher 1 is thinking
+meal_time:4403
+time:4603 philosopher 1 is eating
+meal_time:4403
+time:4604 philosopher 3 is thinking
+meal_time:4403
+time:4604 philosopher 3 is eating
+meal_time:4603
+time:4803 philosopher 0 is thinking
+meal_time:4603
+time:4803 philosopher 0 is eating
+meal_time:4603
+time:4804 philosopher 2 is thinking
+meal_time:4804
+meal_time:4603
+time:4804 philosopher 1 is sleeping
+time:4804 philosopher 2 is eating
+meal_time:4804
+time:4804 philosopher 3 is sleeping
+meal_time:5003
+time:5003 philosopher 0 is sleeping
+meal_time:4804
+time:5004 philosopher 1 is thinking
+meal_time:4804
+time:5004 philosopher 1 is eating
+meal_time:5004
+time:5004 philosopher 2 is sleeping
+meal_time:4804
+time:5004 philosopher 3 is thinking
+meal_time:4804
+time:5004 philosopher 3 is eating
+meal_time:5003
+time:5203 philosopher 0 is thinking
+meal_time:5003
+time:5203 philosopher 0 is eating
+meal_time:5204
+time:5204 philosopher 1 is sleeping
+meal_time:5004
+time:5204 philosopher 2 is thinking
+meal_time:5004
+time:5204 philosopher 2 is eating
+meal_time:5204
+time:5204 philosopher 3 is sleeping
+meal_time:5404
+time:5404 philosopher 0 is sleeping
+meal_time:5204
+time:5404 philosopher 1 is thinking
+meal_time:5204
+time:5404 philoentrouentroutime:0 philosopher:2 has taken a fork
+time:0 philosopher:2 has taken a fork
+time:0 philosopher 2 is eating
+time:0 philosopher:0 has taken a fork
+time:0 philosopher:0 has taken a fork
+time:0 philosopher 0 is eating
+time:106 philosopher 0 is dead
+time:106 philosopher 0 is dead
+meal_time:200
+meal_time:200
+time:200 philosopher 2 is sleeping
+time:200 philosopher:3 has taken a fork
+time:200 philosopher:3 has taken a fork
+time:200 philosopher 3 is eating
+time:200 philosopher:1 has taken a fork
+time:200 philosopher:1 has taken a fork
+time:200 philosopher 1 is eating
+time:200 philosopher 0 is sleeping
+meal_time:200
+meal_time:401
+time:401 philosopher 3 is sleeping
+meal_time:200
+time:401 philosopher 0 is thinking
+meal_time:401
+time:401 philosopher 1 is sleeping
+meal_time:200
+time:401 philosopher 0 is eating
+time:401 philosopher 2 is thinking
+meal_time:200
+time:401 philosopher 2 is eating
+meal_time:601
+meal_time:401
+time:601 philosopher 1 is thinking
+meal_time:401
+time:601 philosopher 1 is eating
+time:601 philosopher 0 is sleeping
+meal_time:601
+time:601 philosopher 2 is sleeping
+meal_time:401
+time:601 philosopher 3 is thinking
+meal_time:401
+time:601 philosopher 3 is eating
+meal_time:601
+time:801 philosopher 0 is thinking
+meal_time:601
+meal_time:601
+time:801 philosopher 0 is eating
+meal_time:801
+time:801 philosopher 1 is sleeping
+meal_time:801
+time:801 philosopher 2 is thinking
+meal_time:601
+time:801 philosopher 3 is sleeping
+time:802 philosopher 2 is eating
+meal_time:1001
+time:1001 philosopher 0 is sleeping
+meal_time:801
+time:1002 philosopher 1 is thinking
+meal_time:801
+time:1002 philosopher 1 is eating
+meal_time:801
+time:1002 philosopher 3 is thinking
+meal_time:801
+time:1002 philosopher 3 is eating
+meal_time:1002
+time:1002 philosopher 2 is sleeping
+meal_time:1001
+time:1202 philosopher 0 is thinking
+meal_time:1001
+time:1202 philosopher 0 is eating
+meal_time:1202
+time:1202 philosopher 1 is sleeping
+meal_time:1202
+time:1202 philosopher 3 is sleeping
+meal_time:1002
+time:1202 philosopher 2 is thinking
+meal_time:1002
+time:1202 philosopher 2 is eating
+meal_time:1402
+time:1402 philosopher 0 is sleeping
+meal_time:1202
+time:1402 philosopher 1 is thinking
+meal_time:1202
+time:1402 philosopher 1 is eating
+meal_time:1202
+time:1402 philosopher 3 is thinking
+meal_time:1202
+time:1402 philosopher 3 is eating
+meal_time:1402
+time:1402 philosopher 2 is sleeping
+meal_time:1402
+time:1602 philosopher 0 is thinking
+meal_time:1402
+time:1602 philosopher 0 is eating
+meal_time:1602
+time:1602 philosopher 1 is sleeping
+meal_time:1602
+time:1602 philosopher 3 is sleeping
+meal_time:1402
+time:1602 philosopher 2 is thinking
+meal_time:1402
+time:1602 philosopher 2 is eating
+meal_time:1802
+time:1802 philosopher 0 is sleeping
+meal_time:1602
+time:1802 philosopher 1 is thinking
+meal_time:1602
+time:1802 philosopher 1 is eating
+meal_time:1602
+time:1802 philosopher 3 is thinking
+meal_time:1602
+time:1802 philosopher 3 is eating
+meal_time:1802
+time:1802 philosopher 2 is sleeping
+meal_time:1802
+time:2002 philosopher 0 is thinking
+meal_time:1802
+time:2002 philosopher 0 is eating
+meal_time:2002
+time:2002 philosopher 1 is sleeping
+meal_time:2002
+time:2002 philosopher 3 is sleeping
+meal_time:1802
+time:2002 philosopher 2 is thinking
+meal_time:1802
+time:2002 philosopher 2 is eating
+meal_time:2202
+time:2202 philosopher 0 is sleeping
+meal_time:2002
+time:2202 philosopher 1 is thinking
+meal_time:2002
+time:2202 philosopher 1 is eating
+meal_time:2202
+time:2202 philosopher 2 is sleeping
+meal_time:2002
+time:2203 philosopher 3 is thinking
+meal_time:2002
+time:2203 philosopher 3 is eating
+meal_time:2202
+time:2402 philosopher 0 is thinking
+meal_time:2202
+time:2402 philosopher 0 is eating
+meal_time:2403
+time:2403 philosopher 1 is sleeping
+meal_time:2202
+time:2403 philosopher 2 is thinking
+meal_time:2202
+time:2403 philosopher 2 is eating
+meal_time:2403
+time:2403 philosopher 3 is sleeping
+meal_time:2602
+time:2602 philosopher 0 is sleeping
+meal_time:2403
+time:2603 philosopher 1 is thinking
+meal_time:2403
+time:2603 philosopher 1 is eating
+meal_time:2603
+time:2603 philosopher 2 is sleeping
+meal_time:2403
+time:2603 philosopher 3 is thinking
+meal_time:2403
+time:2603 philosopher 3 is eating
+meal_time:2602
+time:2803 philosopher 0 is thinking
+meal_time:2602
+time:2803 philosopher 0 is eating
+meal_time:2803
+time:2803 philosopher 1 is sleeping
+meal_time:2603
+time:2803 philosopher 2 is thinking
+meal_time:2803
+time:2803 philosopher 3 is sleeping
+meal_time:2603
+time:2803 philosopher 2 is eating
+meal_time:3003
+time:3003 philosopher 0 is sleeping
+meal_time:2803
+time:3003 philosopher 1 is thinking
+meal_time:2803
+time:3003 philosopher 1 is eating
+meal_time:2803
+time:3003 philosopher 3 is thinking
+meal_time:2803
+meal_time:3003
+time:3003 philosopher 3 is eating
+time:3003 philosopher 2 is sleeping
+meal_time:3003
+time:3203 philosopher 0 is thinking
+meal_time:3003
+time:3203 philosopher 0 is eating
+meal_time:3203
+time:3203 philosopher 1 is sleeping
+meal_time:3203
+time:3203 philosopher 3 is sleeping
+meal_time:3003
+time:3204 philosopher 2 is thinking
+meal_time:3003
+time:3204 philosopher 2 is eating
+meal_time:3403
+time:3403 philosopher 0 is sleeping
+meal_time:3203
+time:3403 philosopher 1 is thinking
+meal_time:3203
+time:3403 philosopher 1 is eating
+meal_time:3203
+time:3404 philosopher 3 is thinking
+meal_time:3203
+time:3404 philosopher 3 is eating
+meal_time:3404
+time:3404 philosopher 2 is sleeping
+meal_time:3403
+time:3603 philosopher 0 is thinking
+meal_time:3403
+time:3603 philosopher 0 is eating
+meal_time:3603
+time:3603 philosopher 1 is sleeping
+meal_time:3604
+time:3604 philosopher 3 is sleeping
+meal_time:3404
+time:3604 philosopher 2 is thinking
+meal_time:3404
+time:3604 philosopher 2 is eating
+meal_time:3803
+time:3803 philosopher 0 is sleeping
+meal_time:3603
+time:3803 philosopher 1 is thinking
+meal_time:3603
+time:3803 philosopher 1 is eating
+meal_time:3604
+time:3804 philosopher 3 is thinking
+meal_time:3604
+time:3804 philosopher 3 is eating
+meal_time:3804
+time:3804 philosopher 2 is sleeping
+meal_time:3803
+time:4003 philosopher 0 is thinking
+meal_time:3803
+time:4003 philosopher 0 is eating
+meal_time:4003
+time:4003 philosopher 1 is sleeping
+meal_time:4004
+time:4004 philosopher 3 is sleeping
+meal_time:3804
+time:4004 philosopher 2 is thinking
+meal_time:3804
+time:4004 philosopher 2 is eating
+meal_time:4003
+time:4204 philosopher 1 is thinking
+meal_time:4003
+time:4204 philosopher 1 is eating
+meal_time:4204
+time:4204 philosopher 0 is sleeping
+meal_time:4004
+time:4204 philosopher 3 is thinking
+meal_time:4004
+time:4204 philosopher 3 is eating
+meal_time:4204
+time:4204 philosopher 2 is sleeping
+meal_time:4204
+meal_time:4404
+time:4404 philosopher 0 is thinking
+meal_time:4204
+time:4404 philosopher 0 is eating
+time:4404 philosopher 1 is sleeping
+meal_time:4404
+time:4404 philosopher 3 is sleeping
+meal_time:4204
+time:4405 philosopher 2 is thinking
+meal_time:4204
+time:4405 philosopher 2 is eating
+meal_time:4404
+time:4604 philosopher 1 is thinking
+meal_time:4404
+meal_time:4604
+time:4604 philosopher 1 is eating
+meal_time:4404
+time:4604 philosopher 3 is thinking
+time:4604 philosopher 0 is sleeping
+meal_time:4605
+time:4605 philosopher 2 is sleeping
+meal_time:4404
+time:4605 philosopher 3 is eating
+meal_time:4804
+time:4804 philosopher 1 is sleeping
+meal_time:4604
+time:4805 philosopher 0 is thinking
+meal_time:4604
+time:4805 philosopher 0 is eating
+meal_time:4605
+time:4805 philosopher 2 is thinking
+meal_time:4605
+time:4805 philosopher 2 is eating
+meal_time:4805
+time:4805 philosopher 3 is sleeping
+meal_time:4804
+time:5005 philosopher 1 is thinking
+meal_time:4804
+time:5005 philosopher 1 is eating
+meal_time:5005
+time:5005 philosopher 0 is sleeping
+meal_time:5005
+time:5005 philosopher 2 is sleeping
+meal_time:4805
+time:5005 philosopher 3 is thinking
+meal_time:4805
+time:5005 philosopher 3 is eating
+meal_time:5205
+time:5205 philosopher 1 is sleeping
+meal_time:5005
+time:5205 philosopher 0 is thinking
+meal_time:5005
+time:5205 philosopher 0 is eating
+meal_time:5005
+time:5205 philosopher 2 is thinking
+meal_time:5005
+time:5205 philosopher 2 is eating
+meal_time:5205
+time:5205 philosopher 3 is sleeping
+meal_time:5205
+time:5405 philosopher 1 is thinking
+meal_time:5205
+time

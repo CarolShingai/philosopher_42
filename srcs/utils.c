@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:09:11 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 20:03:06 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 21:01:15 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,5 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
+
+// void	ft_free(t_table table)

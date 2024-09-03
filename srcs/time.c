@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 19:22:32 by cshingai          #+#    #+#             */
-/*   Updated: 2024/08/28 19:30:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:41:43 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long	get_time(void)
 {
-	long	time;
+	long			time;
 	struct timeval	current_time;
 
 	gettimeofday(&current_time, NULL);
