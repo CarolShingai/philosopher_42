@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 18:29:35 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 20:43:34 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	set_table(t_table *table, char **argv)
 	table->time_to_eat = ft_atol(argv[3]);
 	table->time_to_sleep = ft_atol(argv[4]);
 	table->rip_philo = FALSE;
+	table->end = FALSE;
 	if (argv[5])
 		table->max_meals = ft_atol(argv[5]);
 	else

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 20:31:05 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/03 21:01:08 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ struct s_table
 	pthread_t		monitor;
 	t_philo			*philo;
 	t_bool			rip_philo;
+	t_bool			end;
 	t_fork			*fork;
 };
 
@@ -86,6 +87,7 @@ struct s_table
 t_bool				is_philo_dead(t_philo *philo);
 void				*monitoring(void *arg);
 void	max_meals_free(t_table *table);
+int	check_simulation(t_philo *philo);
 
 // philo_life.c
 void				*philo_life(void *arg);
