@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 00:48:10 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 21:02:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/04 17:59:32 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	init_mutex(t_table *table)
 	pthread_mutex_init(&table->death_checker, NULL);
 	pthread_mutex_init(&table->mutex_all, NULL);
 	pthread_mutex_init(&table->mutex_all_2, NULL);
+	pthread_mutex_init(&table->mutex_monitor, NULL);
 	while (i < table->nbr_philo)
 	{
 		result = pthread_mutex_init(&table->fork[i].fork, NULL);
@@ -38,6 +39,7 @@ void	destroy_mutex(t_table *table)
 	pthread_mutex_destroy(&table->death_checker);
 	pthread_mutex_destroy(&table->mutex_all);
 	pthread_mutex_destroy(&table->mutex_all_2);
+	pthread_mutex_destroy(&table->mutex_monitor);
 	while (i < table->nbr_philo)
 	{
 		pthread_mutex_destroy(&table->fork[i].fork);

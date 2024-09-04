@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 20:49:30 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/04 20:18:45 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*philo_life(void *arg)
 			&& philo->meals_count >= philo->table->max_meals)
 			break ;
 	}
-	if (i == 1)
+	if (!philo->table->simulation || i == 1)
 	{
 		pthread_mutex_unlock(&philo->right_fork->fork);
 		pthread_mutex_unlock(&philo->left_fork->fork);
@@ -53,8 +53,10 @@ void	*philo_life(void *arg)
 void	eating(t_philo *philo)
 {
 	print_mutex(philo, EATING);
-	pthread_mutex_lock(&philo->table->mutex_all);
+	pthread_mutex_lock(&philo->table->mutex_monitor);
 	philo->meals_count++;
+	pthread_mutex_unlock(&philo->table->mutex_monitor);
+	pthread_mutex_lock(&philo->table->mutex_all);
 	philo->last_meal_time = get_time();
 	pthread_mutex_unlock(&philo->table->mutex_all);
 	ft_usleep(philo->table->time_to_eat);

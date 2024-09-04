@@ -1,5 +1,5 @@
 NAME = philo
-FLAGS = -Wall -Werror -Wextra -pthread -g3
+FLAGS = -Wall -Werror -Wextra -pthread
 HEADERS = -I ./include
 
 SRCS = ${addprefix srcs/, \

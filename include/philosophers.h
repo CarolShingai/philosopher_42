@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 21:01:08 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/04 20:39:55 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <errno.h>
+
+# define RESET "\033[0m"
+# define GREEN "\033[0;32m"
+# define RED "\33[;31m"
+# define ORANGE "\033[38;5;208m"
+# define PURPLE "\033[38;5;141m"
+# define BLUE "\033[34m"
 
 typedef enum e_bool
 {
@@ -76,18 +83,18 @@ struct s_table
 	pthread_mutex_t	print;
 	pthread_mutex_t	mutex_all;
 	pthread_mutex_t	mutex_all_2;
+	pthread_mutex_t	mutex_monitor;
 	pthread_t		monitor;
 	t_philo			*philo;
 	t_bool			rip_philo;
-	t_bool			end;
+	t_bool			simulation;
 	t_fork			*fork;
 };
 
 // death.c
 t_bool				is_philo_dead(t_philo *philo);
 void				*monitoring(void *arg);
-void	max_meals_free(t_table *table);
-int	check_simulation(t_philo *philo);
+t_bool				reach_max_meals(t_table *table);
 
 // philo_life.c
 void				*philo_life(void *arg);

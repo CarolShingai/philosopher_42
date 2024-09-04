@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:09:11 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 18:24:55 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/04 20:37:29 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ void	print_mutex(t_philo *philo, t_life status)
 {
 	pthread_mutex_lock(&philo->table->print);
 	if (status == TAKE_FORK)
-		printf("%ld %d has taken a fork\n",
+		printf(GREEN"%ld %d has taken a fork\n"RESET,
 			elapsed_time(philo->table), philo->id);
 	else if (status == EATING)
-		printf("%ld %d is eating\n", elapsed_time(philo->table), philo->id);
+		printf(ORANGE"%ld %d is eating 🍕\n"RESET,
+			elapsed_time(philo->table), philo->id);
 	else if (status == SLEEPING)
-		printf("%ld %d is sleeping\n", elapsed_time(philo->table), philo->id);
+		printf(PURPLE"%ld %d is sleeping 😴\n"RESET,
+			elapsed_time(philo->table), philo->id);
 	else if (status == THINKING)
-		printf("%ld %d is thinking\n", elapsed_time(philo->table), philo->id);
+		printf(BLUE"%ld %d is thinking 💭 \n"RESET,
+			elapsed_time(philo->table), philo->id);
 	else
-		printf("%ld %d is dead\n", elapsed_time(philo->table), philo->id);
+		printf("%ld %d is dead 🪦\n", elapsed_time(philo->table), philo->id);
 	pthread_mutex_unlock(&philo->table->print);
 }
 

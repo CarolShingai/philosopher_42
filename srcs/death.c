@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:08:27 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/03 21:01:33 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/04 20:39:38 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,9 @@ void	*monitoring(void *arg)
 	while (1)
 	{
 		pthread_mutex_lock(&table->death_checker);
-		if (table->max_meals == table->philo->meals_count)
+		if (reach_max_meals(table))
 		{
 			pthread_mutex_unlock(&table->death_checker);
-			max_meals_free(table);
 			break ;
 		}
 		if (i == table->nbr_philo)
@@ -63,17 +62,26 @@ void	*monitoring(void *arg)
 	return (NULL);
 }
 
-void	max_meals_free(t_table *table)
+t_bool	reach_max_meals(t_table *table)
 {
-	int i;
+	int	i;
+	int	n;
 
 	i = 0;
-	pthread_mutex_unlock(&table->mutex_all);
-	pthread_mutex_unlock(&table->mutex_all_2);
-	// while(i <= table->nbr_philo)
-	// {
-	// 	pthread_mutex_unlock(&table->philo->right_fork->fork);
-	// 	pthread_mutex_unlock(&table->philo->left_fork->fork);
-	// 	i++;
-	// }
+	n = 0;
+	pthread_mutex_lock(&table->mutex_monitor);
+	while (i < table->nbr_philo)
+	{
+		if (table->max_meals == table->philo[i].meals_count)
+			n++;
+		i++;
+	}
+	pthread_mutex_unlock(&table->mutex_monitor);
+	if (n == table->nbr_philo)
+	{
+		table->simulation = FALSE;
+		return (TRUE);
+	}
+	else
+		return (FALSE);
 }
