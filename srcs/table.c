@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 20:03:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/04 17:10:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/05 20:12:06 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	set_table(t_table *table, char **argv)
 		table->max_meals = -1;
 	init_mutex(table);
 	set_philosophers(table, table->nbr_philo);
-	create_thread(table);
+	if (table->nbr_philo == 1)
+		create_one(table);
+	else
+		create_thread(table);
 	pthread_create(&table->monitor, NULL, monitoring, table);
 	join_thread(table);
 	destroy_mutex(table);

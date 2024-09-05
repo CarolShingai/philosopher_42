@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/04 20:39:55 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/05 20:05:31 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ t_bool				reach_max_meals(t_table *table);
 
 // philo_life.c
 void				*philo_life(void *arg);
+void				*life_one(void *arg);
 void				eating(t_philo *philo);
 void				thinking(t_philo *philo);
 void				sleeping(t_philo *philo);
@@ -127,6 +128,7 @@ t_fork_preference	philo_laterality(t_philo *philo);
 // thread.c
 void				create_thread(t_table *table);
 void				join_thread(t_table *table);
+void				create_one(t_table *table);
 
 // validation.c
 t_bool				philo_checker(int argc, char **argv);

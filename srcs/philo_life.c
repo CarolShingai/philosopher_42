@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/04 20:18:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/05 20:21:45 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,24 @@ void	*philo_life(void *arg)
 	return (NULL);
 }
 
+void	*life_one(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *) arg;
+	while (check_life(philo) && philo->table->simulation)
+	{
+		philo = (t_philo *)arg;
+		pthread_mutex_lock(&philo->right_fork->fork);
+		print_mutex(philo, TAKE_FORK);
+		pthread_mutex_unlock(&philo->right_fork->fork);
+		print_mutex(philo, SLEEPING);
+		ft_usleep(philo->table->time_to_sleep);
+		print_mutex(philo, THINKING);
+	}
+	return (NULL);
+}
+
 void	eating(t_philo *philo)
 {
 	print_mutex(philo, EATING);
@@ -72,5 +90,5 @@ void	thinking(t_philo *philo)
 void	sleeping(t_philo *philo)
 {
 	print_mutex(philo, SLEEPING);
-	ft_usleep(philo->table->time_to_eat);
+	ft_usleep(philo->table->time_to_sleep);
 }
