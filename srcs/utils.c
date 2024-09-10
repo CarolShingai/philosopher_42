@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:09:11 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/04 20:37:29 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/09 21:17:03 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,33 @@
 
 void	print_mutex(t_philo *philo, t_life status)
 {
+	int		status_death;
+	long	time_now;
+
+	time_now = elapsed_time(philo->table);
+	if (status != DIED)
+		pthread_mutex_lock(&philo->table->mutex_monitor);
+	status_death = philo->table->simulation == TRUE;
+	if (status != DIED)
+		pthread_mutex_unlock(&philo->table->mutex_monitor);
 	pthread_mutex_lock(&philo->table->print);
-	if (status == TAKE_FORK)
-		printf(GREEN"%ld %d has taken a fork\n"RESET,
-			elapsed_time(philo->table), philo->id);
-	else if (status == EATING)
-		printf(ORANGE"%ld %d is eating 🍕\n"RESET,
-			elapsed_time(philo->table), philo->id);
-	else if (status == SLEEPING)
-		printf(PURPLE"%ld %d is sleeping 😴\n"RESET,
-			elapsed_time(philo->table), philo->id);
-	else if (status == THINKING)
-		printf(BLUE"%ld %d is thinking 💭 \n"RESET,
-			elapsed_time(philo->table), philo->id);
-	else
-		printf("%ld %d is dead 🪦\n", elapsed_time(philo->table), philo->id);
+	if (status == DIED)
+		printf("%ld %d is dead 🪦\n", time_now, philo->id);
+	else if (status_death)
+	{
+		if (status == TAKE_FORK)
+			printf(GREEN"%ld %d has taken a fork\n"RESET,
+				time_now, philo->id);
+		else if (status == EATING)
+			printf(ORANGE"%ld %d is eating 🍕\n"RESET,
+				time_now, philo->id);
+		else if (status == SLEEPING)
+			printf(PURPLE"%ld %d is sleeping 😴\n"RESET,
+				time_now, philo->id);
+		else if (status == THINKING)
+			printf(BLUE"%ld %d is thinking 💭\n"RESET,
+				time_now, philo->id);
+	}
 	pthread_mutex_unlock(&philo->table->print);
 }
 

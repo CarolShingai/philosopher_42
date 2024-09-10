@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/05 20:21:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/09 20:37:16 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	check_life(t_philo *philo)
 {
 	int	i;
 
-	pthread_mutex_lock(&philo->table->mutex_all_2);
-	i = philo->table->rip_philo != TRUE;
-	pthread_mutex_unlock(&philo->table->mutex_all_2);
+	pthread_mutex_lock(&philo->table->mutex_monitor);
+	i = philo->table->simulation == TRUE;
+	pthread_mutex_unlock(&philo->table->mutex_monitor);
 	return (i);
 }
 
@@ -27,26 +27,30 @@ void	*philo_life(void *arg)
 	static void	(*f[4])(t_philo *) = {take_fork, eating, sleeping, thinking};
 	t_philo		*philo;
 	int			i;
+	int			meals_count;
 
 	philo = (t_philo *) arg;
 	i = 0;
-	if (philo == NULL)
-		write(2, "philo is NULL", 14);
 	while (check_life(philo))
 	{
 		f[i](philo);
 		i++;
 		if (i == 4)
 			i = 0;
+		pthread_mutex_lock(&philo->table->mutex_monitor);
+		meals_count = philo->meals_count;
+		pthread_mutex_unlock(&philo->table->mutex_monitor);
 		if (philo->table->max_meals != -1
-			&& philo->meals_count >= philo->table->max_meals)
+			&& meals_count >= philo->table->max_meals)
 			break ;
 	}
-	if (!philo->table->simulation || i == 1)
+
+	if (i == 1)
 	{
 		pthread_mutex_unlock(&philo->right_fork->fork);
 		pthread_mutex_unlock(&philo->left_fork->fork);
 	}
+
 	return (NULL);
 }
 
@@ -54,41 +58,7 @@ void	*life_one(void *arg)
 {
 	t_philo	*philo;
 
-	philo = (t_philo *) arg;
-	while (check_life(philo) && philo->table->simulation)
-	{
-		philo = (t_philo *)arg;
-		pthread_mutex_lock(&philo->right_fork->fork);
-		print_mutex(philo, TAKE_FORK);
-		pthread_mutex_unlock(&philo->right_fork->fork);
-		print_mutex(philo, SLEEPING);
-		ft_usleep(philo->table->time_to_sleep);
-		print_mutex(philo, THINKING);
-	}
+	philo = (t_philo *)arg;
+	print_mutex(philo, TAKE_FORK);
 	return (NULL);
-}
-
-void	eating(t_philo *philo)
-{
-	print_mutex(philo, EATING);
-	pthread_mutex_lock(&philo->table->mutex_monitor);
-	philo->meals_count++;
-	pthread_mutex_unlock(&philo->table->mutex_monitor);
-	pthread_mutex_lock(&philo->table->mutex_all);
-	philo->last_meal_time = get_time();
-	pthread_mutex_unlock(&philo->table->mutex_all);
-	ft_usleep(philo->table->time_to_eat);
-	pthread_mutex_unlock(&philo->right_fork->fork);
-	pthread_mutex_unlock(&philo->left_fork->fork);
-}
-
-void	thinking(t_philo *philo)
-{
-	print_mutex(philo, THINKING);
-}
-
-void	sleeping(t_philo *philo)
-{
-	print_mutex(philo, SLEEPING);
-	ft_usleep(philo->table->time_to_sleep);
 }

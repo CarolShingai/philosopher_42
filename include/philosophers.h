@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/05 20:05:31 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:41:39 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void				destroy_mutex(t_table *table);
 
 // take_fork.c
 void				take_fork(t_philo *philo);
+void				one_fork(t_philo *philo);
 void				right_hand(t_philo *philo);
 void				left_hand(t_philo *philo);
 
