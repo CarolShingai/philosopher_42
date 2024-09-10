@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:09:11 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/09 21:17:03 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:00:59 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	print_mutex(t_philo *philo, t_life status)
 
 	time_now = elapsed_time(philo->table);
 	if (status != DIED)
-		pthread_mutex_lock(&philo->table->mutex_monitor);
-	status_death = philo->table->simulation == TRUE;
-	if (status != DIED)
-		pthread_mutex_unlock(&philo->table->mutex_monitor);
+		status_death = simulation(philo);
 	pthread_mutex_lock(&philo->table->print);
 	if (status == DIED)
 		printf("%ld %d is dead 🪦\n", time_now, philo->id);
@@ -42,6 +39,16 @@ void	print_mutex(t_philo *philo, t_life status)
 				time_now, philo->id);
 	}
 	pthread_mutex_unlock(&philo->table->print);
+}
+
+int	simulation(t_philo *philo)
+{
+	int	status_death;
+
+	pthread_mutex_lock(&philo->table->mutex_monitor);
+	status_death = philo->table->simulation == TRUE;
+	pthread_mutex_unlock(&philo->table->mutex_monitor);
+	return (status_death);
 }
 
 int	ft_isdigit(int c)

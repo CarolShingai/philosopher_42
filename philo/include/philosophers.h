@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:10:16 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/09 16:41:39 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:58:13 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,12 @@ void				*monitoring(void *arg);
 t_bool				reach_max_meals(t_table *table);
 
 // philo_life.c
+int					check_life(t_philo *philo);
 void				*philo_life(void *arg);
 void				*life_one(void *arg);
+void				unlock_forks(t_philo *philo);
+
+// action.c
 void				eating(t_philo *philo);
 void				thinking(t_philo *philo);
 void				sleeping(t_philo *philo);
@@ -137,6 +141,7 @@ t_bool				is_alldigits(int argc, char **argv);
 
 // utils.c
 void				print_mutex(t_philo *philo, t_life status);
+int					simulation(t_philo *philo);
 int					ft_isdigit(int c);
 int					ft_strlen(char *str);
 long				ft_atol(const char *str);

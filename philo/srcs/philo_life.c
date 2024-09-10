@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:29:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/09/09 20:37:16 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:46:45 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,15 @@ void	*philo_life(void *arg)
 			&& meals_count >= philo->table->max_meals)
 			break ;
 	}
-
 	if (i == 1)
-	{
-		pthread_mutex_unlock(&philo->right_fork->fork);
-		pthread_mutex_unlock(&philo->left_fork->fork);
-	}
-
+		unlock_forks(philo);
 	return (NULL);
+}
+
+void	unlock_forks(t_philo *philo)
+{
+	pthread_mutex_unlock(&philo->right_fork->fork);
+	pthread_mutex_unlock(&philo->left_fork->fork);
 }
 
 void	*life_one(void *arg)
